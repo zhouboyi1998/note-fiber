@@ -9,6 +9,7 @@
 </a>
 <img src="https://img.shields.io/badge/Go-1.23-darkturquoise">
 <img src="https://img.shields.io/badge/Fiber-2.52.6-darkturquoise">
+<img src="https://img.shields.io/badge/MongoDB Go Driver-1.17.2-seagreen">
 </p>
 
 ### 📖 语言
@@ -41,6 +42,30 @@ go run main.go
 
 ```
 go build main.go
+```
+
+### 🐳 Docker
+
+#### Go 代码编译成 Linux 可执行文件
+
+```
+set GOOS=linux
+
+set GOARCH=amd64
+
+go build main.go
+```
+
+#### Docker 构建
+
+```
+docker build -t note-fiber .
+```
+
+#### Docker 运行
+
+```
+docker run -d -p 18099:18099 --name note-fiber note-fiber
 ```
 
 ### 📜 开源协议

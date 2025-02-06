@@ -2,22 +2,15 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"net/http"
+	"note-fiber/src/application"
+	"note-fiber/src/router"
 )
 
 func main() {
 	// 新建 Fiber 实例
 	app := fiber.New()
-
-	// Hello World
-	app.Get("/hello/:name", func(c *fiber.Ctx) error {
-		name := c.Params("name")
-		return c.JSON(fiber.Map{
-			"code":    http.StatusOK,
-			"message": "Hello, " + name,
-		})
-	})
-
+	// 注册路由
+	router.RegisterRouter(app)
 	// 启动服务
-	app.Listen(":18099")
+	app.Listen(application.App.Server.Host + ":" + application.App.Server.Port)
 }
